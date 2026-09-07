@@ -7,7 +7,7 @@ class Player
 	Player() = default;
 	float money;
 	std::vector<int/*Items*/> inventory;
-	Products::Product stage;
+	Products::Product* stage;
 	void LoadPlayer();
 };
 

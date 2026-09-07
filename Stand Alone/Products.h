@@ -5,18 +5,19 @@ namespace Products
 	const unsigned short	baseCustomersPD				= 30;
 	const float 			baseRichCustomerChance		= 1.0f;
 	const unsigned short    baseRichCustomerMultiplier	= 3;
-	const char*				baseLogo					= "assets/Products/";
+	static const char*		baseLogo					= "assets/Products/";
 	class Product {
-		void IncreaseUpgrade(unsigned short upgradeType);
+	public:
+		void IncreaseUpgrade(unsigned short upgradeType,unsigned short value);
 		float GetMultiplier();
 		char* GetLogo();
 	};
-	class Lemonade : Product
+	class Lemonade : public Product
 	{
 	public:
 		Lemonade();
 		Lemonade(unsigned short qualityUpgrade, unsigned short storageUpgrade, unsigned short priceUpgrade, unsigned short productUpgrade);
-		void IncreaseUpgrade(unsigned short upgradeType);
+		void IncreaseUpgrade(unsigned short upgradeType, unsigned short value);;
 		float GetMultiplier();
 		char* GetLogo();
 	private:
@@ -29,13 +30,12 @@ namespace Products
 
 		const float				storageMultiplier = 0.25f;		// Increases the amount of customers per day
 		unsigned short			storageUpgrade;					// Increases the amount of customers per day
-
-		unsigned short			productUpgrade;					// Upgrades the product to a better one (EX: Lemon -> Coffee)
 	};
-	class Coffee : Product {
+	class Coffee : public Product {
+	public:
 		Coffee();
 		Coffee(unsigned short qualityUpgrade, unsigned short storageUpgrade, unsigned short priceUpgrade, unsigned short productUpgrade);
-		void IncreaseUpgrade(unsigned short upgradeType);
+		void IncreaseUpgrade(unsigned short upgradeType, unsigned short value);
 		float GetMultiplier();
 		char* GetLogo();
 	private:
@@ -48,13 +48,12 @@ namespace Products
 
 		const float				storageMultiplier = 0.25f;		// Increases the amount of customers per day
 		unsigned short			storageUpgrade;					// Increases the amount of customers per day
-
-		unsigned short			productUpgrade;					// Upgrades the product to a better one (EX: Lemon -> Coffee)
 	};
-	class Boba : Product{
+	class Boba : public Product{
+	public:
 		Boba();
 		Boba(unsigned short qualityUpgrade, unsigned short storageUpgrade, unsigned short priceUpgrade, unsigned short productUpgrade);
-		void IncreaseUpgrade(unsigned short upgradeType);
+		void IncreaseUpgrade(unsigned short upgradeType, unsigned short value);
 		float GetMultiplier();
 		char* GetLogo();
 	private:
@@ -67,13 +66,12 @@ namespace Products
 
 		const float				storageMultiplier = 0.25f;		// Increases the amount of customers per day
 		unsigned short			storageUpgrade;					// Increases the amount of customers per day
-
-		unsigned short			productUpgrade;					// Upgrades the product to a better one (EX: Lemon -> Coffee)
 	};
-	class Matcha : Product{
+	class Matcha : public Product{
+	public:
 		Matcha();
 		Matcha(unsigned short qualityUpgrade, unsigned short storageUpgrade, unsigned short priceUpgrade, unsigned short productUpgrade);
-		void IncreaseUpgrade(unsigned short upgradeType);
+		void IncreaseUpgrade(unsigned short upgradeType, unsigned short value);
 		float GetMultiplier();
 		char* GetLogo();
 	private:
@@ -86,8 +84,6 @@ namespace Products
 
 		const float				storageMultiplier = 0.25f;		// Increases the amount of customers per day
 		unsigned short			storageUpgrade;					// Increases the amount of customers per day
-
-		unsigned short			productUpgrade;					// Upgrades the product to a better one (EX: Lemon -> Coffee)
 	};
 }
 

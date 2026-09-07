@@ -5,36 +5,31 @@ Products::Lemonade::Lemonade() {
 	this->qualityUpgrade = 1;
 	this->storageUpgrade = 1;
 	this->priceUpgrade	 = 1;
-	this->productUpgrade = 1;
 }
 Products::Lemonade::Lemonade(unsigned short qualityUpgrade, unsigned short storageUpgrade, unsigned short priceUpgrade, unsigned short productUpgrade) {
 	this->qualityUpgrade = qualityUpgrade;
 	this->storageUpgrade = storageUpgrade;
 	this->priceUpgrade = priceUpgrade;
-	this->productUpgrade = productUpgrade;
 }
 
-void Products::Lemonade::IncreaseUpgrade(unsigned short upgradeType) {
+void Products::Lemonade::IncreaseUpgrade(unsigned short upgradeType, unsigned short value) {
 	switch (upgradeType) {
 	case 0:
-		this->qualityUpgrade++;
+		this->qualityUpgrade += value;
 		break;
 	case 1:
-		this->storageUpgrade++;
+		this->storageUpgrade += value;
 		break;
 	case 2:
-		this->priceUpgrade++;
-		break;
-	case 3:
-		this->productUpgrade++;
+		this->priceUpgrade	 += value;
 		break;
 	default:
 		break;
 	}
 }
 float Products::Lemonade::GetMultiplier() {
-	return (Products::basePrice * Products::Lemonade::basePriceMultiplier) + (Products::Lemonade::priceUpgrade * Products::Lemonade::priceMultiplierUpgrade);
-	//Product multiplier + upgrade multiplier for total multiplier
+	return 1 + (Products::basePrice * Products::Lemonade::basePriceMultiplier) + (Products::Lemonade::priceUpgrade * Products::Lemonade::priceMultiplierUpgrade);
+	//1(so it's not x0.x) + Product multiplier + upgrade multiplier for total multiplier
 }
 char* Products::Lemonade::GetLogo() {
 	char* logo = new char[1024];
@@ -48,37 +43,32 @@ Products::Coffee::Coffee() {
 	this->qualityUpgrade = 1;
 	this->storageUpgrade = 1;
 	this->priceUpgrade	 = 1;
-	this->productUpgrade = 1;
 }
 Products::Coffee::Coffee(unsigned short qualityUpgrade, unsigned short storageUpgrade, unsigned short priceUpgrade, unsigned short productUpgrade) {
 	this->qualityUpgrade = qualityUpgrade;
 	this->storageUpgrade = storageUpgrade;
 	this->priceUpgrade = priceUpgrade;
-	this->productUpgrade = productUpgrade;
 }
-void Products::Coffee::IncreaseUpgrade(unsigned short upgradeType) {
+void Products::Coffee::IncreaseUpgrade(unsigned short upgradeType, unsigned short value) {
 	switch (upgradeType) {
 	case 0:
-		this->qualityUpgrade++;
+		this->qualityUpgrade += value;
 		break;
 	case 1:
-		this->storageUpgrade++;
+		this->storageUpgrade += value;
 		break;
 	case 2:
-		this->priceUpgrade++;
-		break;
-	case 3:
-		this->productUpgrade++;
+		this->priceUpgrade += value;
 		break;
 	default:
 		break;
 	}
 }
 float Products::Coffee::GetMultiplier() {
-	return (Products::basePrice * Products::Coffee::basePriceMultiplier) + (Products::Coffee::priceUpgrade * Products::Coffee::priceMultiplierUpgrade);
+	return 1 + (Products::basePrice * Products::Coffee::basePriceMultiplier) + (Products::Coffee::priceUpgrade * Products::Coffee::priceMultiplierUpgrade);
 	// Product multiplier + upgrade multiplier for total multiplier
 }
-char* Products::Lemonade::GetLogo() {
+char* Products::Coffee::GetLogo() {
 	char* logo = new char[1024];
 	strcpy_s(logo, 1024, Products::baseLogo);
 	strcat_s(logo, 1024, "Coffee/logo.png");
@@ -91,37 +81,32 @@ Products::Boba::Boba() {
 	this->qualityUpgrade = 1;
 	this->storageUpgrade = 1;
 	this->priceUpgrade	 = 1;
-	this->productUpgrade = 1;
 }
 Products::Boba::Boba(unsigned short qualityUpgrade, unsigned short storageUpgrade, unsigned short priceUpgrade, unsigned short productUpgrade) {
 	this->qualityUpgrade = qualityUpgrade;
 	this->storageUpgrade = storageUpgrade;
 	this->priceUpgrade = priceUpgrade;
-	this->productUpgrade = productUpgrade;
 }
-void Products::Boba::IncreaseUpgrade(unsigned short upgradeType) {
+void Products::Boba::IncreaseUpgrade(unsigned short upgradeType, unsigned short value) {
 	switch (upgradeType) {
 	case 0:
-		this->qualityUpgrade++;
+		this->qualityUpgrade += value;
 		break;
 	case 1:
-		this->storageUpgrade++;
+		this->storageUpgrade += value;
 		break;
 	case 2:
-		this->priceUpgrade++;
-		break;
-	case 3:
-		this->productUpgrade++;
+		this->priceUpgrade += value;
 		break;
 	default:
 		break;
 	}
 }
 float Products::Boba::GetMultiplier() {
-	return (Products::basePrice * Products::Boba::basePriceMultiplier) + (Products::Boba::priceUpgrade * Products::Boba::priceMultiplierUpgrade);
+	return 1 + (Products::basePrice * Products::Boba::basePriceMultiplier) + (Products::Boba::priceUpgrade * Products::Boba::priceMultiplierUpgrade);
 	//Product multiplier + upgrade multiplier for total multiplier
 }
-char* Products::Lemonade::GetLogo() {
+char* Products::Boba::GetLogo() {
 	char* logo = new char[1024];
 	strcpy_s(logo, 1024, Products::baseLogo);
 	strcat_s(logo, 1024, "Boba/logo.png");
@@ -135,37 +120,32 @@ Products::Matcha::Matcha() {
 	this->qualityUpgrade = 1;
 	this->storageUpgrade = 1;
 	this->priceUpgrade	 = 1;
-	this->productUpgrade = 1;
 }
 Products::Matcha::Matcha(unsigned short qualityUpgrade, unsigned short storageUpgrade, unsigned short priceUpgrade, unsigned short productUpgrade) {
 	this->qualityUpgrade = qualityUpgrade;
 	this->storageUpgrade = storageUpgrade;
 	this->priceUpgrade = priceUpgrade;
-	this->productUpgrade = productUpgrade;
 }
-void Products::Matcha::IncreaseUpgrade(unsigned short upgradeType) {
+void Products::Matcha::IncreaseUpgrade(unsigned short upgradeType, unsigned short value) {
 	switch (upgradeType) {
 	case 0:
-		this->qualityUpgrade++;
+		this->qualityUpgrade += value;
 		break;
 	case 1:
-		this->storageUpgrade++;
+		this->storageUpgrade += value;
 		break;
 	case 2:
-		this->priceUpgrade++;
-		break;
-	case 3:
-		this->productUpgrade++;
+		this->priceUpgrade += value;
 		break;
 	default:
 		break;
 	}
 }
 float Products::Matcha::GetMultiplier() {
-	return (Products::basePrice * Products::Matcha::basePriceMultiplier) + (Products::Matcha::priceUpgrade * Products::Matcha::priceMultiplierUpgrade);
+	return 1 + (Products::basePrice * Products::Matcha::basePriceMultiplier) + (Products::Matcha::priceUpgrade * Products::Matcha::priceMultiplierUpgrade);
 	//Product multiplier + upgrade multiplier for total multiplier
 }
-char* Products::Lemonade::GetLogo() {
+char* Products::Matcha::GetLogo() {
 	char* logo = new char[1024];
 	strcpy_s(logo, 1024, Products::baseLogo);
 	strcat_s(logo, 1024, "Matcha/logo.png");

@@ -25,35 +25,35 @@ void SNS::Settings::LoadSettingss() {
 		char* tok = strtok_s(save_file, ":", &context);
 		if (strcmp(tok, "Width") == 0) {
 			tok = strtok_s(nullptr, ":", &context);
-			this->resolution.setWidth(atoi(tok));
+			this->resolution.setWidth(atoi(isdigit(tok[0]) ? tok : "1920"));
 		}
 		else if (strcmp(tok, "Height") == 0) {
 			tok = strtok_s(nullptr, ":", &context);
-			this->resolution.setHeight(atoi(tok));
+			this->resolution.setHeight(atoi(isdigit(tok[0]) ? tok : "1020"));
 		}
 		else if (strcmp(tok, "MasterVolume") == 0) {
 			tok = strtok_s(nullptr, ":", &context);
-			this->volume.changeVolume(SNS::Volume::VolumeType::Master, atoi(tok));
+			this->volume.changeVolume(SNS::Volume::VolumeType::Master, atoi(isdigit(tok[0]) ? tok : "100"));
 		}
 		else if (strcmp(tok, "MusicVolume") == 0) {
 			tok = strtok_s(nullptr, ":", &context);
-			this->volume.changeVolume(SNS::Volume::VolumeType::Music, atoi(tok));
+			this->volume.changeVolume(SNS::Volume::VolumeType::Music, atoi(isdigit(tok[0]) ? tok : "100"));
 		}
 		else if (strcmp(tok, "SFXVolume") == 0) {
 			tok = strtok_s(nullptr, ":", &context);
-			this->volume.changeVolume(SNS::Volume::VolumeType::SFX, atoi(tok));
+			this->volume.changeVolume(SNS::Volume::VolumeType::SFX, atoi(isdigit(tok[0]) ? tok : "100"));
 		}
 		else if (strcmp(tok, "UpgradesKey") == 0) {
 			tok = strtok_s(nullptr, ":", &context);
-			this->keybinds.changeKey(SNS::KeyBinds::KeyType::Upgrades, (KEY)atoi(tok));
+			this->keybinds.changeKey(SNS::KeyBinds::KeyType::Upgrades, (KEY)atoi(isdigit(tok[0]) ? tok : "16"));
 		}
 		else if (strcmp(tok, "InventoryKey") == 0) {
 			tok = strtok_s(nullptr, ":", &context);
-			this->keybinds.changeKey(SNS::KeyBinds::KeyType::Inventory, (KEY)atoi(tok));
+			this->keybinds.changeKey(SNS::KeyBinds::KeyType::Inventory, (KEY)atoi(isdigit(tok[0]) ? tok : "5"));
 		}
 		else if (strcmp(tok, "SettingsKey") == 0) {
 			tok = strtok_s(nullptr, ":", &context);
-			this->keybinds.changeKey(SNS::KeyBinds::KeyType::Settings, (KEY)atoi(tok));
+			this->keybinds.changeKey(SNS::KeyBinds::KeyType::Settings, (KEY)atoi(isdigit(tok[0]) ? tok : "36"));
 		}
 	}
 	delete save_file;

@@ -26,35 +26,59 @@ void SNS::Settings::LoadSettings() {
 		tok = strtok_s(save_file, ":", &context);
 		if (strcmp(tok, "Width") == 0) {
 			tok = strtok_s(nullptr, ":", &context);
-			this->resolution.setWidth(atoi(isdigit(tok[0]) ? tok : "1920"));
+			if (tok)
+				this->resolution.setWidth(atoi(isdigit(tok[0]) ? tok : "1920"));
+			else
+				this->resolution.setWidth(1920);
 		}
 		else if (strcmp(tok, "Height") == 0) {
 			tok = strtok_s(nullptr, ":", &context);
-			this->resolution.setHeight(atoi(isdigit(tok[0]) ? tok : "1020"));
+			if (tok)
+				this->resolution.setHeight(atoi(isdigit(tok[0]) ? tok : "1020"));
+			else
+				this->resolution.setHeight(1080);
 		}
 		else if (strcmp(tok, "MasterVolume") == 0) {
 			tok = strtok_s(nullptr, ":", &context);
-			this->volume.changeVolume(SNS::Volume::VolumeType::Master, atoi(isdigit(tok[0]) ? tok : "100"));
+			if (tok)
+				this->volume.changeVolume(SNS::Volume::VolumeType::Master, atoi(isdigit(tok[0]) ? tok : "100"));
+			else
+				this->volume.changeVolume(SNS::Volume::VolumeType::Master, 100);
 		}
 		else if (strcmp(tok, "MusicVolume") == 0) {
 			tok = strtok_s(nullptr, ":", &context);
-			this->volume.changeVolume(SNS::Volume::VolumeType::Music, atoi(isdigit(tok[0]) ? tok : "100"));
+			if (tok)
+				this->volume.changeVolume(SNS::Volume::VolumeType::Music, atoi(isdigit(tok[0]) ? tok : "100"));
+			else
+				this->volume.changeVolume(SNS::Volume::VolumeType::Music, 100);
 		}
 		else if (strcmp(tok, "SFXVolume") == 0) {
 			tok = strtok_s(nullptr, ":", &context);
-			this->volume.changeVolume(SNS::Volume::VolumeType::SFX, atoi(isdigit(tok[0]) ? tok : "100"));
+			if (tok)
+				this->volume.changeVolume(SNS::Volume::VolumeType::SFX, atoi(isdigit(tok[0]) ? tok : "100"));
+			else
+				this->volume.changeVolume(SNS::Volume::VolumeType::SFX, 100);
 		}
 		else if (strcmp(tok, "UpgradesKey") == 0) {
 			tok = strtok_s(nullptr, ":", &context);
-			this->keybinds.changeKey(SNS::KeyBinds::KeyType::Upgrades, (KEY)atoi(isdigit(tok[0]) ? tok : "16"));
+			if (tok)
+				this->keybinds.changeKey(SNS::KeyBinds::KeyType::Upgrades, (KEY)atoi(isdigit(tok[0]) ? tok : "16"));
+			else
+				this->keybinds.changeKey(SNS::KeyBinds::KeyType::Upgrades, KEY::Q);
 		}
 		else if (strcmp(tok, "InventoryKey") == 0) {
 			tok = strtok_s(nullptr, ":", &context);
-			this->keybinds.changeKey(SNS::KeyBinds::KeyType::Inventory, (KEY)atoi(isdigit(tok[0]) ? tok : "5"));
+			if (tok)
+				this->keybinds.changeKey(SNS::KeyBinds::KeyType::Inventory, (KEY)atoi(isdigit(tok[0]) ? tok : "5"));
+			else
+				this->keybinds.changeKey(SNS::KeyBinds::KeyType::Inventory, KEY::E);
 		}
 		else if (strcmp(tok, "SettingsKey") == 0) {
 			tok = strtok_s(nullptr, ":", &context);
-			this->keybinds.changeKey(SNS::KeyBinds::KeyType::Settings, (KEY)atoi(isdigit(tok[0]) ? tok : "36"));
+			if (tok)
+				this->keybinds.changeKey(SNS::KeyBinds::KeyType::Settings, (KEY)atoi(isdigit(tok[0]) ? tok : "36"));
+			else
+				this->keybinds.changeKey(SNS::KeyBinds::KeyType::Settings, KEY::Escape);
 		}
 	}
 	tok = nullptr;

@@ -11,18 +11,21 @@ void Player::LoadPlayer() {
 		token = strtok_s(save_file, ":", &context);
 		if (strcmp(token, "Money") == 0) {
 			token = strtok_s(nullptr, ":", &context);
-			this->money = (float)atof(isdigit(token[0]) ? token : "0");
+			if (token)
+				this->money = (float)atof(isdigit(token[0]) ? token : "0");
+			else
+				this->money = 0, f;
 		}
 		else if (strcmp(token, "Inventory") == 0) {
 			token = strtok_s(nullptr, ",", &context);
-			while (token != NULL) {
+			while (token) {
 				this->inventory.push_back(atoi(isdigit(token[0]) ? token : "0"));
 				token = strtok_s(nullptr, ",", &context);
 			}
 		}
 		else if (strcmp(token, "Stage") == 0) {
 			token = strtok_s(nullptr, ":", &context);
-			if (isdigit(token[0])) {
+			if (token && isdigit(token[0])) {
 				int stageType = atoi(token);
 				switch (stageType) {
 				case 0:
@@ -46,15 +49,24 @@ void Player::LoadPlayer() {
 		}
 		else if (strcmp(token, "PriceUpgrade") == 0) {
 			token = strtok_s(nullptr, ":", &context);
+			if (token)
 			this->stage->IncreaseUpgrade(2,atoi(isdigit(token[0]) ? token : "1"));
+			else
+				this->stage->IncreaseUpgrade(2, 1);
 		}
 		else if (strcmp(token, "QualityUpgrade") == 0) {
 			token = strtok_s(nullptr, ":", &context);
+			if (token)
 			this->stage->IncreaseUpgrade(0, atoi(isdigit(token[0]) ? token : "1"));
+			else
+				this->stage->IncreaseUpgrade(0, 1);
 		}
 		else if (strcmp(token, "StorageUpgrade") == 0) {
 			token = strtok_s(nullptr, ":", &context);
+			if (token)
 			this->stage->IncreaseUpgrade(1, atoi(isdigit(token[0]) ? token : "1"));
+			else
+				this->stage->IncreaseUpgrade(1, 1);
 		}
 		else if (strcmp(token, "MainCharacter") == 0) {
 		

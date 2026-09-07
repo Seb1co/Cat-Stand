@@ -4,6 +4,7 @@
 
 class Player
 {
+public:
 	Player() = default;
 	float money;
 	std::vector<int/*Items*/> inventory;

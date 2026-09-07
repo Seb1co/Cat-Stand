@@ -42,7 +42,7 @@ namespace SNS {
 	public:
 		Settings();
 		Settings(SNS::Resolution resolution, SNS::Volume volume, SNS::KeyBinds keybinds);
-		void LoadSettingss();
+		void LoadSettings();
 	private:
 		SNS::Resolution resolution;
 		SNS::Volume		volume;

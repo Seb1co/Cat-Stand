@@ -17,12 +17,13 @@ SNS::Settings::Settings(SNS::Resolution resolution, SNS::Volume volume, SNS::Key
 	this->keybinds = keybinds;
 }
 
-void SNS::Settings::LoadSettingss() {
+void SNS::Settings::LoadSettings() {
 	char* save_file = new char[1024];
 	char* context = nullptr;
+	char* tok = nullptr;
 	std::ifstream f("Settings.txt");
 	while (f >> save_file) {
-		char* tok = strtok_s(save_file, ":", &context);
+		tok = strtok_s(save_file, ":", &context);
 		if (strcmp(tok, "Width") == 0) {
 			tok = strtok_s(nullptr, ":", &context);
 			this->resolution.setWidth(atoi(isdigit(tok[0]) ? tok : "1920"));
@@ -56,7 +57,9 @@ void SNS::Settings::LoadSettingss() {
 			this->keybinds.changeKey(SNS::KeyBinds::KeyType::Settings, (KEY)atoi(isdigit(tok[0]) ? tok : "36"));
 		}
 	}
-	delete save_file;
+	tok = nullptr;
+	delete tok;
+	delete[] save_file;
 	context = nullptr;
 	delete context;
 	f.close();

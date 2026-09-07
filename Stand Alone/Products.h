@@ -5,12 +5,12 @@ namespace Products
 	const unsigned short	baseCustomersPD				= 30;
 	const float 			baseRichCustomerChance		= 1.0f;
 	const unsigned short    baseRichCustomerMultiplier	= 3;
-	static const char*		baseLogo					= "assets/Products/";
+	static const char		baseLogo[]					= "assets/Products/";
 	class Product {
 	public:
-		void IncreaseUpgrade(unsigned short upgradeType,unsigned short value);
-		float GetMultiplier();
-		char* GetLogo();
+		virtual void IncreaseUpgrade(unsigned short upgradeType,unsigned short value);
+		virtual float GetMultiplier();
+		virtual char* GetLogo();			// Remember to DELETE the char* after use
 	};
 	class Lemonade : public Product
 	{

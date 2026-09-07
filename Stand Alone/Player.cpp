@@ -11,7 +11,7 @@ void Player::LoadPlayer() {
 		token = strtok_s(save_file, ":", &context);
 		if (strcmp(token, "Money") == 0) {
 			token = strtok_s(nullptr, ":", &context);
-			this->money = atof(isdigit(token[0]) ? token : "0");
+			this->money = (float)atof(isdigit(token[0]) ? token : "0");
 		}
 		else if (strcmp(token, "Inventory") == 0) {
 			token = strtok_s(nullptr, ",", &context);
@@ -60,4 +60,10 @@ void Player::LoadPlayer() {
 		
 		}
 	}
+	token = nullptr;
+	delete token;
+	delete[] save_file;
+	context = nullptr;
+	delete context;
+	f.close();
 }

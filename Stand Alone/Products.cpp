@@ -1,6 +1,18 @@
 #include "Products.h"
 #include <cstring>
 
+void Products::Product::IncreaseUpgrade(unsigned short upgradeType, unsigned short value) {
+}
+
+float Products::Product::GetMultiplier() {
+	return 1.0f;
+}
+
+char* Products::Product::GetLogo() {
+	return nullptr;
+}
+
+
 Products::Lemonade::Lemonade() {
 	this->qualityUpgrade = 1;
 	this->storageUpgrade = 1;

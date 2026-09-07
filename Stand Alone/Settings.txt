@@ -1,0 +1,8 @@
+Width:213
+Height:3123
+MasterVolume:132
+MusicVolume:4123
+SFXVolume:535
+UpgradesKey:23
+InventoryKey:12
+SettingsKey:2

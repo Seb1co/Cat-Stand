@@ -1,0 +1,8 @@
+Money:
+Inventory:
+Stage:
+PriceUpgrade:
+QualityUpgrade:
+StorageUpgrade:
+StoreColor:
+MainCharacter:

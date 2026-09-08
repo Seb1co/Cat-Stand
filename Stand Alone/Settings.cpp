@@ -17,6 +17,13 @@ SNS::Settings::Settings(SNS::Resolution resolution, SNS::Volume volume, SNS::Key
 	this->keybinds = keybinds;
 }
 
+unsigned short SNS::Settings::getWidth() {
+	return this->resolution.width;
+}
+unsigned short SNS::Settings::getHeight() {
+	return this->resolution.height;
+}
+
 void SNS::Settings::LoadSettings() {
 	char* save_file = new char[1024];
 	char* context = nullptr;

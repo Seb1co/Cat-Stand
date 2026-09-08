@@ -43,6 +43,8 @@ namespace SNS {
 		Settings();
 		Settings(SNS::Resolution resolution, SNS::Volume volume, SNS::KeyBinds keybinds);
 		void LoadSettings();
+		unsigned short getWidth();
+		unsigned short getHeight();
 	private:
 		SNS::Resolution resolution;
 		SNS::Volume		volume;

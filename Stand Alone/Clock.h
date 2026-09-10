@@ -9,6 +9,7 @@ public:
 	void stop();
 	std::thread				clockThread;
 	bool					shouldRun	= true;
+
 	unsigned short			tps			= 20;
 	unsigned int			tpd			= 28800;  // 20(tps) * 60(secs) * 24(minutes)
 	unsigned int			tick		= 0;
